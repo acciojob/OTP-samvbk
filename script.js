@@ -5,15 +5,15 @@ inputs.forEach((input,index) => {
 	input.addEventListener("input",() => {
 		input.value = input.value.replace(/[^0-9]/g,"");
 	
-		if (input.value !== "" && index<input.length-1) {
-			input[index+1].focus();
+		if (input.value !== "" && index<inputs.length-1) {
+			inputs[index+1].focus();
 		}
 	});
 	
 	input.addEventListener("keydown",() => {
 		if (event.key === "Backspace" && input.value === "" && index>0) {
-			input[index-1].value = "";
-			input[index-1].focus();
+			inputs[index-1].value = "";
+			inputs[index-1].focus();
 		}
 	});
 });
