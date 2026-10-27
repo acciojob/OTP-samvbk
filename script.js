@@ -10,10 +10,18 @@ inputs.forEach((input,index) => {
 		}
 	});
 	
-	input.addEventListener("keydown",() => {
-		if (event.key === "Backspace" && input.value === "" && index>0) {
-			inputs[index-1].value = "";
-			inputs[index-1].focus();
-		}
-	});
+	input.addEventListener("keydown", (event) => {
+  if (event.key === "Backspace") {
+
+    if (input.value !== "") {
+      input.value = "";
+      event.preventDefault();
+    } else if (index > 0) {
+      inputs[index - 1].value = "";
+      inputs[index - 1].focus();
+      event.preventDefault();
+    }
+
+  }
+});
 });
